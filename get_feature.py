@@ -39,7 +39,7 @@ def search_song(title:str, artist:str=None, limit:int = 1) ->str:
     - If no match is found, an IndexError may occur. It is advisable to handle such cases
       when using this function.
     """
-    if artist = None:
+    if artist == None:
         result=sp.search(q=f"track:{title}", limit=limit)
         song_id = result['tracks']['items'][0]['id']
     else:
