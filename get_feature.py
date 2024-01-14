@@ -21,7 +21,7 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id=Client_ID, 
 
 # function search song:
 # results = sp.search(q="track:'+Great Gatsby+' artist:'+Rod Wave'", limit=1)
-def search_song(title:str, artist:str=None, limit:int = 1) ->str:
+def search_song(title:str, artist:str='', limit:int = 1) ->str:
     """
     Searches for a song on Spotify based on the given title and optional artist.
     
@@ -39,7 +39,7 @@ def search_song(title:str, artist:str=None, limit:int = 1) ->str:
     - If no match is found, an IndexError may occur. It is advisable to handle such cases
       when using this function.
     """
-    if artist == None:
+    if artist == '':
         result=sp.search(q=f"track:{title}", limit=limit)
         song_id = result['tracks']['items'][0]['id']
     else:
